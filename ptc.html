@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        window.addEventListener("load", function () {
+            const text = document.querySelector("#txt1");
+            const btn=document.querySelector("#btn");
+            const list=document.querySelector("#list");
+            btn.addEventListener("click", function (e) {
+                let flist=text.value.split(",");
+                for(let i=0;i<flist.length;i++){
+                    const li=document.createElement("li");
+                    li.textContent=flist[i];
+                    list.appendChild(li);
+                    
+                    const button=document.createElement("button");
+                    button.textContent="X";
+                    li.appendChild(button);
+                    
+                    button.addEventListener("click",delet);
+                }
+            })
+        })
+
+        function delet(e){
+            e.target.parentElement.remove();
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txt1"><br>
+    <input type="button" value="add" id="btn" class="btn btn-primary">
+    <ul id="list">
+
+    </ul>
+
+</html>
