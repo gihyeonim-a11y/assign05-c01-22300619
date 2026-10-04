@@ -1,4 +1,5 @@
 # Deployment
+https://assign05-c01-22300619-9plq.vercel.app/
 
 # Key Learning
 1. 자바 스크립트 DOM에 대해 배웠고, querySelector 같은 함수들을 통해 자바 스크립트에서 html에 어떤 방식으로 접근하는지 를 배웠다.DOM객체를 통해 접근함. Select - event - change
