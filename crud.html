@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <Script>
+        let players = [
+            {
+                name: "Roanldo",
+                nation: "Portugal",
+                postion: "ST",
+                height: "187",
+                weight: "83"
+            },
+            {
+                name: "Son",
+                nation: "Korea",
+                postion: "CF",
+                height: "183",
+                weight: "77"
+            },
+            {
+                name: "Benzema",
+                nation: "France",
+                postion: "ST",
+                height: "185",
+                weight: "81"
+            }
+        ]
+
+    </Script>
+</head>
+
+<body>
+    <nav class="navbar bg-dark">
+        <div class="text-white p-2 fw-bold">축구 선수 관리 Program</div>
+    </nav>
+    <main>
+        <div class="container col-12 mt-3">
+            <form method="get" action="">
+                <div class="row g-3 mx-3">
+                    <div class="col-5 mx-3">
+                        <label for="name" class="mb-2 fw-bold">* 이름</label>
+                        <input type="text" placeholder="이름을 입력하세요." class="form-control border border-secondary"
+                            id="name">
+                    </div>
+                    <div class="col-5 mx-3">
+                        <label for="name" class="mb-2 fw-bold">* 국가</label>
+                        <input type="text" placeholder="국가를 입력하세요." class="form-control border border-secondary"
+                            id="nation">
+                    </div>
+                </div>
+                <div class="row g-3 mt-3 mx-3">
+                    <div class="col-5 mx-3">
+                        <label for="name" class="mb-2 fw-bold">* 포지션</label>
+                        <input type="text" placeholder="포지션을 입력(ex: ST, CB)"
+                            class="form-control border border-secondary" id="position">
+                    </div>
+                    <div class="col-5 mx-3">
+                        <label for="name" class="mb-2 fw-bold">* 신장</label>
+                        <input type="text" placeholder="키를 입력하세요." class="form-control border border-secondary"
+                            id="height">
+                    </div>
+                </div>
+                <div class="row g-3 mt-3 mx-3">
+                    <div class="col-5 mx-3">
+                        <label for="name" class="mb-2 fw-bold">* 몸무게</label>
+                        <input type="text" placeholder="몸무게를 입력" class="form-control border border-secondary"
+                            id="weight">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" id="add" value="선수 등록하기" class="btn btn-primary w-50 btn-lg rounded-3 mt-5">
+                </div>
+            </form>
+        </div>
+        <hr class="mt-5">
+        <div class="text-center fw-bold" style="font-size: x-large;">player-list</div>
+
+        <div class="container mt-5">
+            <table class="table text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Nation</th>
+                        <th>Postion</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>수정/삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Roanldo</td>
+                        <td>Portugal</td>
+                        <td>ST</td>
+                        <td>187</td>
+                        <td>83</td>
+                    </tr>
+                    <tr>
+                        <td>Son</td>
+                        <td>Korea</td>
+                        <td>CF</td>
+                        <td>183</td>
+                        <td>77</td>
+                    </tr>
+                    <tr>
+                        <td>Benzema</td>
+                        <td>France</td>
+                        <td>ST</td>
+                        <td>185</td>
+                        <td>81</td>
+                        <td><button class="btn btn-warning" id="">수정</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
