@@ -54,7 +54,6 @@
                         <td>${players[i].weight}</td>
                     `;
                     
-
                     const editbtn = document.createElement("button");
                     editbtn.textContent = "수정";
                     editbtn.className = "btn btn-warning btn-sm";
@@ -63,11 +62,16 @@
                     deletebtn.textContent = "삭제";
                     deletebtn.className = "btn btn-danger btn-sm";
 
+                    deletebtn.addEventListener("click",function(e){
+                        if(confirm("정말로 삭제하시겠습니까?")){
+                            splice(i,1);
+                            render();
+                        }
+                    });
+
                     td.appendChild(editbtn);
                     td.appendChild(deletebtn);
-
                     tr.appendChild(td);
-                    
                     tbody.appendChild(tr);
                 }
             }
