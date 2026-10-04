@@ -11,28 +11,53 @@
             {
                 name: "Roanldo",
                 nation: "Portugal",
-                postion: "ST",
+                position: "ST",
                 height: "187",
                 weight: "83"
             },
             {
                 name: "Son",
                 nation: "Korea",
-                postion: "CF",
+                position: "CF",
                 height: "183",
                 weight: "77"
             },
             {
                 name: "Benzema",
                 nation: "France",
-                postion: "ST",
+                position: "ST",
                 height: "185",
                 weight: "81"
             }
         ]
 
-        window.addEventListener("load",function(){
-            const tbody = 
+        window.addEventListener("load", function () {
+            const tbody = document.querySelector("#body");
+            const addbtn = document.querySelector("#add");
+            const name = document.querySelector("#name");
+            const nation = document.querySelector("#nation");
+            const position = document.querySelector("#position");
+            const height = document.querySelector("#height");
+            const weight = document.querySelector("#weight");
+
+            function render() {
+                tbody.innerHTML = "";
+
+                for (let i = 0; i < players.length; i++) {
+                    const tr = document.createElement("tr");
+                    const td=document.createElement("td");
+                    tr.innerHTML = <td>players[i].name</td>, <td>players[i].nation</td>, <td>players[i].position</td>, <td>players[i].height</td>, <td>players[i].weight</td>;
+
+                    const editbtn=document.createElement("button");
+                    editbtn.textContent="수정";
+                    editbtn.className="btn btn-warning btn-sm";
+
+                    const deletebtn=document.createElement("button");
+                    deletebtn.textContent="삭제";
+                    deletebtn.className="btn btn-danger btn-sm";
+                    
+                }
+            }
         });
     </Script>
 </head>
@@ -51,26 +76,26 @@
                             id="name">
                     </div>
                     <div class="col-5 mx-3">
-                        <label for="name" class="mb-2 fw-bold">* 국가</label>
+                        <label for="nation" class="mb-2 fw-bold">* 국가</label>
                         <input type="text" placeholder="국가를 입력하세요." class="form-control border border-secondary"
                             id="nation">
                     </div>
                 </div>
                 <div class="row g-3 mt-3 mx-3">
                     <div class="col-5 mx-3">
-                        <label for="name" class="mb-2 fw-bold">* 포지션</label>
+                        <label for="positon" class="mb-2 fw-bold">* 포지션</label>
                         <input type="text" placeholder="포지션을 입력(ex: ST, CB)"
                             class="form-control border border-secondary" id="position">
                     </div>
                     <div class="col-5 mx-3">
-                        <label for="name" class="mb-2 fw-bold">* 신장</label>
+                        <label for="height" class="mb-2 fw-bold">* 신장</label>
                         <input type="text" placeholder="키를 입력하세요." class="form-control border border-secondary"
                             id="height">
                     </div>
                 </div>
                 <div class="row g-3 mt-3 mx-3">
                     <div class="col-5 mx-3">
-                        <label for="name" class="mb-2 fw-bold">* 몸무게</label>
+                        <label for="weight" class="mb-2 fw-bold">* 몸무게</label>
                         <input type="text" placeholder="몸무게를 입력" class="form-control border border-secondary"
                             id="weight">
                     </div>
@@ -95,7 +120,8 @@
                         <th>수정/삭제</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="body">
+
                 </tbody>
             </table>
         </div>
