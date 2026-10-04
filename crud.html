@@ -45,19 +45,27 @@
 
                 for (let i = 0; i < players.length; i++) {
                     const tr = document.createElement("tr");
-                    const td=document.createElement("td");
-                    tr.innerHTML = <td>players[i].name</td>, <td>players[i].nation</td>, <td>players[i].position</td>, <td>players[i].height</td>, <td>players[i].weight</td>;
-
-                    const editbtn=document.createElement("button");
-                    editbtn.textContent="수정";
-                    editbtn.className="btn btn-warning btn-sm";
-
-                    const deletebtn=document.createElement("button");
-                    deletebtn.textContent="삭제";
-                    deletebtn.className="btn btn-danger btn-sm";
+                    const td = document.createElement("td");
+                    tr.innerHTML = `
+                        <td>${players[i].name}</td>
+                        <td>${players[i].nation}</td>
+                        <td>${players[i].position}</td> 
+                        <td>${players[i].height}</td>
+                        <td>${players[i].weight}</td>
+                    `;
                     
+                    tbody.appendChild(tr);
+
+                    const editbtn = document.createElement("button");
+                    editbtn.textContent = "수정";
+                    editbtn.className = "btn btn-warning btn-sm";
+
+                    const deletebtn = document.createElement("button");
+                    deletebtn.textContent = "삭제";
+                    deletebtn.className = "btn btn-danger btn-sm";
                 }
             }
+            render();
         });
     </Script>
 </head>
