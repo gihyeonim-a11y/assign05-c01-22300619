@@ -15,12 +15,14 @@
                 const input = t1.value.split(",");
                 for (let i = 0; i < input.length; i++) {
                     const li = document.createElement("li");
+                    li.style="padding-right:5px;"
                     li.textContent = input[i];
                     list.appendChild(li);
                     t1.value = "";
 
                     const del = document.createElement("button");
-                    del.textContent = "X";
+                    del.class="pl-3"
+                    del.textContent = "삭제";
                     li.appendChild(del);
 
                     del.addEventListener("click", delet);
@@ -42,7 +44,6 @@
         <input type="button" id="btn" value="add" class="btn btn-primary">
     </form>
     <ul id="list">
-
     </ul>
 </body>
 

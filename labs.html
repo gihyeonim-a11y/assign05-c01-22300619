@@ -25,7 +25,20 @@
 
         window.addEventListener("load", function () {
             const clcikBtn2 = document.querySelector("#clickBtn2");
-            clcikBtn2.addEventListener("click", clickMe)
+            clcikBtn2.addEventListener("click", clickMe);
+
+            const form=document.querySelector("#login");
+            form.addEventListener("submit",function(e){
+                const name=document.querySelector("#name");
+                if(name.value==""){
+                    e.preventDefault();
+                    alert("이름 입력하세요.");
+                    name.focus();
+                    return;
+                }
+                
+                alert("제출됨.");
+            })
         });
 
     </script>
@@ -52,7 +65,12 @@
     <input id="result" readonly>
 
 
-
+    <!-- form js연습 -->
+    <br><br><br>
+    <form action="" method="post" id="login">
+        <input type="text" id="name" placeholder="이름을 입력"><br>
+        <button id="submit">로그인</button>
+    </form>
 </body>
 
 </html>
