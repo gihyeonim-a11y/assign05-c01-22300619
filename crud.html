@@ -30,8 +30,8 @@
                 weight: "81"
             }
         ]
-        
-        let editindex=NULL;
+
+        let editindex = null;
 
         window.addEventListener("load", function () {
             const tbody = document.querySelector("#body");
@@ -55,7 +55,7 @@
                         <td>${players[i].height}</td>
                         <td>${players[i].weight}</td>
                     `;
-                    
+
                     const editbtn = document.createElement("button");
                     editbtn.textContent = "수정";
                     editbtn.className = "btn btn-warning btn-sm";
@@ -64,18 +64,18 @@
                     deletebtn.textContent = "삭제";
                     deletebtn.className = "btn btn-danger btn-sm";
 
-                    editbtn.addEventListener("click",function(){
-                        name.value=players[i].name;
-                        nation.value=players[i].nation;
-                        position.value=players[i].position;
-                        height.value=players[i].height;
-                        weight.value=players[i].weight;
-                        editindex=i;
+                    editbtn.addEventListener("click", function () {
+                        name.value = players[i].name;
+                        nation.value = players[i].nation;
+                        position.value = players[i].position;
+                        height.value = players[i].height;
+                        weight.value = players[i].weight;
+                        editindex = i;
                     });
 
-                    deletebtn.addEventListener("click",function(e){
-                        if(confirm("정말로 삭제하시겠습니까?")){
-                            splice(i,1);
+                    deletebtn.addEventListener("click", function (e) {
+                        if (confirm("정말로 삭제하시겠습니까?")) {
+                            players.splice(i, 1);
                             render();
                         }
                     });
@@ -86,27 +86,51 @@
                     tbody.appendChild(tr);
                 }
             };
-            addbtn.addEventListener("click",function(e){
+
+            addbtn.addEventListener("click", function (e) {
                 e.preventDefault();
-                if(name.value.trim()===""){
+
+                if (name.value.trim() === "") {
                     alert("이름을 입력하세요.");
                     name.focus();
                     return;
                 }
-                else if(name.value.trim()>5){
+                else if (name.value.trim().length > 5) {
                     alert("이름은 5자 미만으로 해주세요.");
                     name.focus();
                     return;
                 }
-                
-                if(parseInt(height.value)>230){
+                else if (parseInt(height.value) > 230) {
                     alert("키는 230 이하로 적어주세요.");
                     height.focus();
                     return;
-
                 }
+
+                const newplayer = {
+                    name: name.value.trim(),
+                    nation: nation.value,
+                    position: position.value.trim(),
+                    height: height.value.trim(),
+                    weight: weight.value.trim(),
+                };
+                if (editindex == null) {
+                    players.push(newplayer);
+                }
+                else {
+                    players[editindex] = newplayer;
+
+                    editindex = null;
+                }
+                name.value = "";
+                nation.value = "";
+                position.value = "";
+                height.value = "";
+                weight.value = "";
+                render();
             });
+
             render();
+
         });
     </Script>
 </head>
