@@ -30,6 +30,8 @@
                 weight: "81"
             }
         ]
+        
+        let editindex=NULL;
 
         window.addEventListener("load", function () {
             const tbody = document.querySelector("#body");
@@ -62,6 +64,15 @@
                     deletebtn.textContent = "삭제";
                     deletebtn.className = "btn btn-danger btn-sm";
 
+                    editbtn.addEventListener("click",function(){
+                        name.value=players[i].name;
+                        nation.value=players[i].nation;
+                        position.value=players[i].position;
+                        height.value=players[i].height;
+                        weight.value=players[i].weight;
+                        editindex=i;
+                    });
+
                     deletebtn.addEventListener("click",function(e){
                         if(confirm("정말로 삭제하시겠습니까?")){
                             splice(i,1);
@@ -74,7 +85,27 @@
                     tr.appendChild(td);
                     tbody.appendChild(tr);
                 }
-            }
+            };
+            addbtn.addEventListener("click",function(e){
+                e.preventDefault();
+                if(name.value.trim()===""){
+                    alert("이름을 입력하세요.");
+                    name.focus();
+                    return;
+                }
+                else if(name.value.trim()>5){
+                    alert("이름은 5자 미만으로 해주세요.");
+                    name.focus();
+                    return;
+                }
+                
+                if(parseInt(height.value)>230){
+                    alert("키는 230 이하로 적어주세요.");
+                    height.focus();
+                    return;
+
+                }
+            });
             render();
         });
     </Script>
@@ -96,26 +127,26 @@
                     <div class="col-5 mx-3">
                         <label for="nation" class="mb-2 fw-bold">* 국가</label>
                         <input type="text" placeholder="국가를 입력하세요." class="form-control border border-secondary"
-                            id="nation">
+                            id="nation" required>
                     </div>
                 </div>
                 <div class="row g-3 mt-3 mx-3">
                     <div class="col-5 mx-3">
                         <label for="positon" class="mb-2 fw-bold">* 포지션</label>
                         <input type="text" placeholder="포지션을 입력(ex: ST, CB)"
-                            class="form-control border border-secondary" id="position">
+                            class="form-control border border-secondary" id="position" required>
                     </div>
                     <div class="col-5 mx-3">
                         <label for="height" class="mb-2 fw-bold">* 신장</label>
                         <input type="text" placeholder="키를 입력하세요." class="form-control border border-secondary"
-                            id="height">
+                            id="height" required>
                     </div>
                 </div>
                 <div class="row g-3 mt-3 mx-3">
                     <div class="col-5 mx-3">
                         <label for="weight" class="mb-2 fw-bold">* 몸무게</label>
                         <input type="text" placeholder="몸무게를 입력" class="form-control border border-secondary"
-                            id="weight">
+                            id="weight" required>
                     </div>
                 </div>
                 <div class="text-center">
